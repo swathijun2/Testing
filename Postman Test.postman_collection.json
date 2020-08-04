@@ -1,0 +1,69 @@
+{
+	"info": {
+		"_postman_id": "2e355d39-9dce-4fad-8083-025505a29c71",
+		"name": "Postman Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "myIntegrationTests",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "79221e0e-c371-4dbd-8ab8-a4c3453abba6",
+						"exec": [
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});\r",
+							"});\r",
+							"pm.test(\"Body is correct\", function () {\r",
+							"    pm.response.to.have.body('{\"Hello\"}');\r",
+							"\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"token\");\r",
+							"});\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Name\":\"Postman\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://run.mocky.io/v3/8ef26d32-4aca-478c-bd8a-a7d693ff39d2",
+					"protocol": "https",
+					"host": [
+						"run",
+						"mocky",
+						"io"
+					],
+					"path": [
+						"v3",
+						"8ef26d32-4aca-478c-bd8a-a7d693ff39d2"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
